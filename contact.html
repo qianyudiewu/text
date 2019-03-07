@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="styles/basic.css">
+<script src="scripts/addLoadEvent.js"type="text/javascript"></script>
+<script src="scripts/global.js"type="text/javascript"></script>
+<script src="scripts/contact.js"type="text/javascript"></script>
+<script type="text/javascript">
+function prepareForm(){
+for (var i=0;i<document.forms.length;i++){
+var thisform=document.forms[i];
+resetFields(thisform);
+thisfrom.onsubmit=function(){
+return validateForm(this);
+}
+}
+}
+function validateForm(whichform){
+for(var i=0;i<whichform.elements.length;i++){
+var element=whichform.elements[i];
+if(element.className.indexOf("require") != -1){
+if(!isFiled(element)){
+alert("Please fill in the "+element.name+"field.")
+return false;
+}
+if(element.className.indexOf("email") != -1){
+if(!isemail(element)){
+alert("The "+element.name+" field must be a valid email address.");
+return false;
+}
+}
+}
+return true;
+}
+}
+function resetFields(whichform){
+for(var i=0;i<whichform.elements.length;i++){
+var element=whichform.elements[i];
+if(element.type=="submit") continue;
+if(!element.defaultValue) continue;
+element.onfocus=function(){
+if(this.value==this.defaultValue){
+this.value="";
+}
+}
+element.onblur=function(){
+if(this.value==""){
+this.value=this.defaultValue;
+}
+}
+}
+}
+
+function isFilled(field){
+if(field.value.length<1||field.value==field.defaultValue){
+return false;
+}else{
+return true;
+}
+}
+function isEmail(field){
+if(field.value.indexOf("@")==-1||field.value.indexOf(".")==-1){
+return false;
+}else{
+return true;
+}
+}
+addLoadEvent(prepareForm);
+</script>
+</head>
+<body>
+<div id="header">
+<div id="left"></div>
+<div id="right"><img src="images/relogo.jpg"/></div>
+</div>
+<div id="navigation">
+<ul>
+<li><a href="index.html" class="here" >Home</a></li>
+<li><a href="about.html" >About</a></li>
+<li><a href="photos.html">Photos</a></li>
+<li><a href="live.html" >Live</a></li>
+<li><a href="contact.html" >Contact</a></li>
+</ul>
+</div>
+<div id="content">
+<h1>Contact the band</h1>
+<form method="post" action="#">
+<fieldset>
+<p>
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" value="Your name" class="required"/>
+</p>
+<p>
+<label for="email">Email:</label>
+<input type="text" id="email" name="email" value="Your email address" class="email required"/>
+</p>
+<p>
+<label for="message">Message</label>
+<textarea cols="45" rows="7" id="message" name="message" class="message">Write your message here </textarea>
+</p>
+<input type="submit" value="Send"/>
+
+</fieldset>
+</div>
+</body>
+</html>

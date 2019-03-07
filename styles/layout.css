@@ -1,0 +1,108 @@
+/*基础部分*/
+*{
+padding:0;
+margin:0;
+}
+body{
+margin:1em 10%;
+background-image:url(../images/b1.jpg);
+background-position:top left;
+background-repeat:no-repeat;
+max-width:80em;
+}
+#header{
+background-repeat:no-repeat;
+background-position:bottom right;
+border: 1  solid #fff;
+background-top-width:0;
+display: flex;
+}
+#header #left{
+flex:1;
+height: 23.4375rem/* 375px */;
+}
+#header #left img {
+width: 250px;
+height: 23.4375rem/* 375px */;
+border: 1px solid #fff;
+}
+#header #right{
+flex:2;
+height:375px;
+border: 1px solid #fff;
+}
+#header #right img{
+width:721px ;
+height: 375px;
+}
+#navigation{
+background-color:blue;
+background-position:bottom left;
+background-repeat:repeat-x;
+border-style:solid;
+border-bottom-width:0;
+border-top-width:0;
+padding-left:10%;
+}
+#navigation ul{
+width:100%;
+overflow:hidden;
+border-left-width:.1em;
+border-left-style:solid;
+}
+#navigation li{
+display:inline;
+}
+#navigation li a{
+display:block;
+float:left;
+padding:.5em 2em;
+border-right:.1em solid;
+}
+#content{
+border-width:.1em;
+border-style:soild;
+border-top-width:0;
+padding:2em 10%;
+line-height:1.8em;
+}
+
+/*logo切换*/
+#about #header #left{
+background-image:url(../images/h1.jpg);
+background-size: 100%  100%;
+}
+#photos #header #left{
+background-image:url(../images/h2.jpg);
+background-size: 100%  100%;
+}
+#live  #header #left{
+background-image:url(../images/h3.jpg);
+background-size: 100%  100%;
+}
+#contact  #header #left{
+background-image:url(../images/h4.jpg);
+background-size: 100%  100%;
+}
+/*about*/
+#slideshow{
+width:150px;
+height:150px;
+position:relative;
+overflow:hidden;
+}
+/*photos*/
+#imagegallery {
+    padding-top: 50px;
+}
+#imagegallery li{
+display:inline;
+}
+
+/*contact*/
+label{
+display:block;
+}
+fieldset{
+border:0px;
+}
